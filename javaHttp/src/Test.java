@@ -40,7 +40,7 @@ public class Test {
 	     	   //»Î≤Œ
 	     	   MultipartEntity reqEntity = new MultipartEntity();
 	     	  
-	     	   reqEntity.addPart("uuid",new StringBody("123456789", Charset.forName("utf-8")));
+	     	//   reqEntity.addPart("uuid",new StringBody("123456789", Charset.forName("utf-8")));
                reqEntity.addPart("circle[]", new FileBody(circle1));
                reqEntity.addPart("circle[]", new FileBody(circle2));
                reqEntity.addPart("circle[]", new FileBody(circle3));
@@ -48,6 +48,9 @@ public class Test {
                reqEntity.addPart("match[]", new FileBody(match1));
                reqEntity.addPart("match[]", new FileBody(match2));
                reqEntity.addPart("match[]", new FileBody(match3));
+               reqEntity.addPart("uuid", new StringBody("123456789", Charset.forName("utf-8")));
+               reqEntity.addPart("lens_version", new StringBody("1038", Charset.forName("utf-8")));
+               String boundary ="123456789";//+ UUID.randomUUID().toString();
                
                  httppost.addHeader("Content-type", "multipart/form-data; boundary=123456789");  
 	             httppost.setEntity(reqEntity);  
